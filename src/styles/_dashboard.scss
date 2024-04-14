@@ -1,0 +1,27 @@
+@use 'mixin';
+
+.dashboard{
+    overflow-y: auto;
+    .bar{
+        height:4rem;
+        @include mixin.flex(row,unset);
+        padding : 0,1rem;
+        border-bottom: 1px solid rgb(0,0,0,0.4);
+        background-color: transparent;
+    >input[type="text"]{
+        margin-right: auto;
+        @include mixin.inputStyle(100%,1rem 0)
+    }
+    >svg{
+        font-size: 1.2rem;
+        opacity: 0.7;
+    }
+    >img{
+        @include mixin.square(2rem);
+        border-radius: 50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius: 50%;
+        
+    }
+}
+}

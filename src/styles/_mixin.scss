@@ -1,0 +1,43 @@
+@mixin heading($spacing:3px,$weight:300,$case:uppercase){
+ letter-spacing: $spacing;
+ font-weight: $weight;
+ text-transform:$case;
+}
+
+@mixin flex($dir:row,$justifyContent:center,$alignItems:center,$gap:1rem){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap:$gap
+}
+//gap gives gap btw all row and all  col
+//can sepreately define row-gap and coloumn gap
+@mixin grid($col:1fr,$gap:1rem,$row:unset){
+    display: grid;
+    grid-template-columns: $col;
+    grid-template-rows: $row;
+    gap: $gap;
+}
+
+@mixin inputStyle($w: 100%,$p:1rem,$bgColor: inherit,$border:none){
+    padding: $p;
+    border: $border;
+    background-color: $bgColor;
+    width: $w;
+    outline: none;
+}
+//top and bottom bring the top-left corner to the center of the container the block is the part of
+//transform works relative to the block so it moves the block backward 50% of block width and upward 50% of block height
+@mixin posCeneter(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin square($s:1rem)
+{
+height: $s;
+width: $s;
+}
