@@ -24,4 +24,109 @@
         
     }
 }
+.widgetContainer{
+    @include mixin.flex(row,space-between,stretch,2rem);
+    //top right bottom left
+    padding: 2rem 2rem 2rem 0;
+   // margin: 1.5rem 1.5rem 0.5rem 0;
+        .widget{
+            min-width:16rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.132);
+            padding: 2rem;
+            @include mixin.flex(row,space-between,stretch,0);
+            border-radius: 10px;
+            background-color: white;
+            .widgetInfo{
+                >p{
+                 opacity: 0.7;
+                 font-size: 0.8rem;     
+                }
+                >h4{
+                    font-size: 1.5rem;
+                }
+                >span{
+                    @include mixin.flex(row,unset,center,0.2rem);
+                }
+            }
+            .widgetCircle
+            {
+                flex:none;
+                position: relative;
+                @include mixin.square(5rem);
+                border-radius: 50%;
+                background-color: aquamarine;
+                display: grid;
+                place-items: center;
+                &::before{
+                    position: absolute;
+                    content: "";
+                    border-radius: 100%;
+                    @include mixin.square(4rem);
+                    background-color: white;
+                }
+                >span{
+                    position: relative;
+                }
+            }
+        }
+}
+
+.graphContainer{
+    @include mixin.flex(row,unset,unset,2rem);
+    padding:0 2rem 2rem 0;
+    >div{
+        background-color: white;
+        border-radius: 10px;
+    }
+    .revenueChart{
+      width: 100%;
+      padding: 1rem 3rem;
+      >h2{
+        @include mixin.heading;
+        margin:1rem 0 2rem 0.25rem;
+        text-align: center;
+      }
+    }
+
+    .dashboardCategories{
+        width: 100%;
+        max-width: 16rem;
+        @include mixin.flex(column,center,unset,0);
+        padding-bottom: 2rem;
+        >h2{
+            @include mixin.heading;
+            margin:1.5rem 0 2rem 0;
+            text-align: center;
+          }
+          >div{
+            overflow-y: auto;
+            padding-left: 0.5rem;
+          }
+          .categoryItem{
+            width: 100%;
+            @include mixin.flex(row,space-between);
+            padding: 1rem;
+            >h5{
+                letter-spacing: 1px;
+                font-weight: 300;
+            }
+            >div{
+                width: 6rem;
+                margin-left: auto;
+                background-color: rgb(217,217,217);
+                border-radius: 20px;
+                height: 0.5rem;
+                flex: none;
+                >div{
+                    height: 100%;
+                    border-radius: 20px;
+                }
+            }
+            > span {
+                font-size: 0.8rem;
+                font-weight: 700;
+              }
+          }
+    }
+}
 }
