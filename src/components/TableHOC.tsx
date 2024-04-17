@@ -1,4 +1,8 @@
 import {
+  AiOutlineSortAscending,
+  AiOutlineSortDescending,
+} from "react-icons/ai";
+import {
     Column,
     usePagination,
     useSortBy,
@@ -11,22 +15,29 @@ import {
     data: T[],
     containerClassname: string,
     heading: string,
+    showPagination: boolean = false,
   ) {
     return function HOC() {
       const options: TableOptions<T> = {
         columns,
         data,
-        // initialState: {
-        //   pageSize: 6,
-        // },
+        initialState: {
+          pageSize: 6,
+        },
       };
   
       const {
         getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
+      getTableBodyProps,
+      headerGroups,
+      page,
+      prepareRow,
+      nextPage,
+      pageCount,
+      state: { pageIndex },
+      previousPage,
+      canNextPage,
+      canPreviousPage,
 
       } = useTable(options, useSortBy, usePagination);
   
@@ -39,15 +50,25 @@ import {
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>
-                      {column.render("Header")}
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                      {column.render("Header")}{column.isSorted && (
+                      <span>
+                        {" "}
+                        {column.isSortedDesc ? (
+                          <AiOutlineSortDescending />
+                        ) : (
+                          <AiOutlineSortAscending />
+                        )}
+                      </span>
+                    )}
+
                     </th>
                   ))}
                 </tr>
               ))}
             </thead>
             <tbody {...getTableBodyProps()}>
-              {rows.map((row) => {
+              {page.map((row) => {
                 prepareRow(row);
   
                 return (
@@ -60,7 +81,17 @@ import {
               })}
             </tbody>
           </table>
-  
+          {showPagination && (
+          <div className="tablePagination">
+            <button disabled={!canPreviousPage} onClick={previousPage}>
+              Prev
+            </button>
+            <span>{`${pageIndex + 1} of ${pageCount}`}</span>
+            <button disabled={!canNextPage} onClick={nextPage}>
+              Next
+            </button>
+          </div>
+        )}
         </div>
       );
     };
