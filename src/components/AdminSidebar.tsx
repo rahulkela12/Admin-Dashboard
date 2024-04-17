@@ -22,8 +22,8 @@ const DivOne = ({location}:{location:Location})=>(
     <h5>Dashboard</h5>
     <ul>
         <Li url = "/admin/Dashboard" text = "Dashboard" location={location} Icon={RiDashboardFill} />
-        <Li url = "/admin/products" text = " Products" location={location} Icon={RiShoppingBag3Fill} />
-        <Li url = "/admin/customers" text = "Customers" location={location} Icon={IoIosPeople} />
+        <Li url = "/admin/product" text = " Products" location={location} Icon={RiShoppingBag3Fill} />
+        <Li url = "/admin/customer" text = "Customers" location={location} Icon={IoIosPeople} />
         <Li url = "/admin/transaction" text = "Transactions" location={location} Icon={AiFillFileText} />
     </ul>
     </div>
