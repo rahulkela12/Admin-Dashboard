@@ -10,6 +10,10 @@ const Transaction = lazy(()=>import('./pages/Transaction'));
 const NewProduct = lazy(()=>import('./pages/management/NewProduct'));
 const ProductManagement = lazy(()=>import('./pages/management/ProductManagement'));
 const TransactionManagement = lazy(()=>import('./pages/management/TransactionManagement'));
+const BarChart = lazy(()=>import('./pages/charts/BarChart'));
+const PieChart = lazy(()=>import('./pages/charts/PieChart'));
+const LineChart = lazy(()=>import('./pages/charts/LineChart'));
+
 const App = () => {
   return (
     <Router>
@@ -20,7 +24,10 @@ const App = () => {
         <Route path='/admin/customer' element={<Customers/>}/>
         <Route path='/admin/transaction' element={<Transaction/>}/>
          
-        {/*Charts*/} 
+        {/*Charts*/}
+        <Route path='/admin/chart/bar' element={<BarChart/>}></Route> 
+        <Route path='/admin/chart/pie' element={<PieChart/>}></Route> 
+        <Route path='/admin/chart/line' element={<LineChart/>}></Route> 
         {/*Apps*/}
         {/*Management
          the new route must be up as if not the :id would be rendered not new value of id would be taken as new

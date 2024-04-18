@@ -31,7 +31,7 @@
         height: 85vh;
         padding: 5rem;
         width: 100%;
-        max-width: 500px;
+        max-width: 480px;
         background-color: white;
         border-radius: 5px;
         box-shadow: 0px 5px 5px  rgba(0 ,0 ,0, 0.2);
@@ -111,5 +111,44 @@
                 cursor: pointer;
               }
         }
+    }
+    .shippingInfoCard{
+        >h1{
+           text-align: center;
+           @include heading(2px);
+        }
+        >h5{
+            font-size: 1.1rem;
+            margin: 1rem 0 0 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+          
+        }
+        >p{
+            margin: 0.3rem;
+        }
+        >button {
+            padding: 1rem;
+            margin : 1.5rem 0;
+            border: none;
+            background-color: rgb(5, 107, 224);
+            color: white;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+          }
+    }
+}
+
+.transactionProductCard{
+    @include flex(row,unset);
+    >img{
+        @include square(4rem);
+        border-radius: 5px;
+        object-fit: cover; 
+    }
+    >p{
+        margin-left: auto;
     }
 }
