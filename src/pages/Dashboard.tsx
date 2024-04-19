@@ -1,12 +1,11 @@
-import React from 'react'
-import AdminSidebar from '../components/AdminSidebar';
+import { BiMaleFemale } from 'react-icons/bi';
 import { BsSearch } from 'react-icons/bs';
 import { FaRegBell } from 'react-icons/fa';
-import userpic from '../assets/userpic.png'
 import { HiTrendingDown, HiTrendingUp } from 'react-icons/hi';
 import data from "../assets/data.json";
+import userpic from '../assets/userpic.png';
+import AdminSidebar from '../components/AdminSidebar';
 import { BarChart, DoughnutChart } from '../components/Chart';
-import { BiMaleFemale } from 'react-icons/bi';
 import DashboardTable from '../components/DashboardTable';
 const Dashboard = () => {
   return (

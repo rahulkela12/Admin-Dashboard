@@ -19,6 +19,6 @@ export type OrderType = {
     shippingCharges:number;
     tax:number;
     total:number;
-    orderItems:orderItemType[];
+    orderItems:OrderItemType[];
     _id:string;
   }
